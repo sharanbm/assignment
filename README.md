@@ -34,7 +34,7 @@ There are two spring boot applications developed and deployed on AWS Elastic Bea
 
 ## Invoke/Access the APIs
 
-I have tested the APIs using Postman most of the times. I have also tested the application using CURL
+I have tested the APIs using Postman most of the times. I have also tested the application using CURL.
 First get the auth token
 ###### curl -X POST -vu acme:acmesecret http://oauth.eu-west-2.elasticbeanstalk.com/tcs/oauth/token -H "Accept: application/json" -d "password=boot&username=pwebb&grant_type=password&scope=openid&client_secret=acmesecret&client_id=acme"
 
