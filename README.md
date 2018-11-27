@@ -25,10 +25,36 @@ API security has been implemented with Oauth 2.0. This has been achieved by enab
 I have tried to put basic Javax validation onto the entities/models.
 
 ## Oauth Service
-Oauth service is a custom built spring boot service. I have used Josh Webb's reference and built Oauth server ontop of it.
+Oauth service is a custom built spring boot service. I have used Josh Webb's reference and built Oauth server ontop of it. Internally it is using an in memory database to store the users and api client secrets. 
 
 ## Deployment
 There are two spring boot applications developed and deployed on AWS Elastic Beanstack
 ###### BookStore (http://bookstore-env.jfysm3bbsa.eu-west-2.elasticbeanstalk.com/v1/books)
 ###### Oauth-Service (http://oauth.eu-west-2.elasticbeanstalk.com)
+
+## Invoke/Access the APIs
+
+I have tested the APIs using Postman most of the times. I have also tested the application using CURL
+First get the auth token
+###### curl -X POST -vu acme:acmesecret http://oauth.eu-west-2.elasticbeanstalk.com/tcs/oauth/token -H "Accept: application/json" -d "password=boot&username=pwebb&grant_type=password&scope=openid&client_secret=acmesecret&client_id=acme"
+
+oauth response: (lots of metadata info)
+###### {"access_token":"29e620a0-71ee-4832-b4c1-0dfdb47a50b6","token_type":"bearer","refresh_token":"ff17320e-1da1-4c16-8fcf-85c34a8f7792","expires_in":17651,"scope":"openid"}* Connection #0 to host oauth.eu-west-2.elasticbeanstalk.com left intact
+
+and then with the auth token you have got, 
+###### curl http://bookstore-env.jfysm3bbsa.eu-west-2.elasticbeanstalk.com/v1/books -H "Authorization: Bearer 29e620a0-71ee-4832-b4c1-0dfdb47a50b6"
+
+Response is : (This is because I have already added some books onto the system, if there are no books, you will get an empty array)
+
+###### [{"title":"Java 8","id":1,"publisher":"Pearson","year":"2017","price":"123.45","author":{"name":"James","id":1,"dateOfBirth":"2018-11-24T23:17:17.791+0000","placeOfBirth":"London","dateOfDeath":"2018-11-24T23:17:17.791+0000","placeOfDeath":""}}]
+
+if you dont pass the auth token, you will be given an error message with the description saying, You need to fully authenitcate to access resource.
+
+if you pass an invalid/expired auth token, respecetive message will be shown.
+
+
+
+
+
+
 
