@@ -55,20 +55,12 @@ if you pass an invalid/expired auth token, respecetive message will be shown.
 To Create books in the bookstore, you will POST to
 ###### http://bookstore-env.jfysm3bbsa.eu-west-2.elasticbeanstalk.com/v1/books along with auth token and json array of books data in the body of the request.
 
+## OpenAPI Spec
+I updated the API spec for the POST requests which were missing from the original spec and then I have also updated the security components for Oauth.
+
 ## BookStore Lambda Deployment
 I have not tried this before, but will the references available on the internet I tried to build one and deploy to AWS Lambda. 
 I could deploy it successfully at https://y8zn667m5l.execute-api.eu-west-2.amazonaws.com/Stage/v2/books
 But for some reason, it is taking the https scheme rather http which I have enforced to bear the Oauth security. I am getting a strange error saying {{"message":"Missing Authentication Token"}} But I am not throwing it. 
 
 It was a surprise and taking much time to debug. I have very little information on Lambdas at the moment.
-
-## OpenAPI Spec
-I updated the API spec for the POST requests which were missing from the original spec and then I have also updated the security components for Oauth.
-
-
-
-
-
-
-
-
