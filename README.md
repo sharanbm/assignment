@@ -1,4 +1,5 @@
-# assignment
+# Assignment
+## BookStore (http://bookstore-env.jfysm3bbsa.eu-west-2.elasticbeanstalk.com/v1/books)
 ### Design Approach
 To create the bookstore APIs, I am using Spring Boot. Using the Spring REST controller, the required end points have been exposed. It is a model driven design where we have two main models as Book and Author.
 
@@ -17,8 +18,17 @@ This will be thrown with the message which part of the request is problematic.
 ### Versioning
 The API versioning currently it has been done at URI level. However I have not tried to demonstrate mutliple versions of the API code at the moment.
 
+### Security
+API security has been implemented with Oauth 2.0. This has been achieved by enabling at the controller level using @EnableResourceServer and then configuring * security.oauth2.resource.userInfoUri: http://oauth.eu-west-2.elasticbeanstalk.com/tcs/user *
 
+### Validation
+I have tried to put basic Javax validation onto the entities/models.
 
+## Oauth Service
+Oauth service is a custom built spring boot service. I have used Josh Webb's reference and built Oauth server ontop of it.
 
-
+## Deployment
+There are two spring boot applications developed and deployed on AWS Elastic Beanstack
+###### BookStore (http://bookstore-env.jfysm3bbsa.eu-west-2.elasticbeanstalk.com/v1/books)
+###### Oauth-Service (http://oauth.eu-west-2.elasticbeanstalk.com)
 
