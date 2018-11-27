@@ -60,7 +60,7 @@ I have not tried this before, but will the references available on the internet 
 I could deploy it successfully at https://y8zn667m5l.execute-api.eu-west-2.amazonaws.com/Stage/v2/books
 But for some reason, it is taking the https scheme rather http which I have enforced to bear the Oauth security. I am getting a strange error saying {{"message":"Missing Authentication Token"}} But I am not throwing it. 
 
-It was a surprise and taking much time to debug. I have very little informatiom on Lambdas.
+It was a surprise and taking much time to debug. I have very little information on Lambdas at the moment.
 
 
 
