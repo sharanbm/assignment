@@ -62,6 +62,9 @@ But for some reason, it is taking the https scheme rather http which I have enfo
 
 It was a surprise and taking much time to debug. I have very little information on Lambdas at the moment.
 
+## OpenAPI Spec
+I updated the API spec for the POST requests which were missing from the original spec and then I have also updated the security components for Oauth.
+
 
 
 
