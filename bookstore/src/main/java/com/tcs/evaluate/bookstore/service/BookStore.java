@@ -110,7 +110,7 @@ public class BookStore implements BookStoreService {
 	}
 
 	public boolean removeBookById(int id) {
-		// TODO Auto-generated method stub
+
 		boolean isRemovable = false;
 		if (bookStoreMap.containsKey(id)) {
 			isRemovable = true;
@@ -122,7 +122,6 @@ public class BookStore implements BookStoreService {
 	}
 
 	public List<Book> findByTextSearch(String q) {
-		// TODO Auto-generated method stub
 		return bookStoreMap.values().stream().collect(Collectors.toList()).stream()
 				.filter(book -> book.getTitle().toLowerCase().contains(q.toLowerCase())
 						|| book.getPublisher().toLowerCase().contains(q.toLowerCase())
